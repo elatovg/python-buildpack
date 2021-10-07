@@ -6,13 +6,14 @@ steps:
   args: ['build',
          '--builder=gcr.io/buildpacks/builder',
          '--publish', 
-         '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE}:$COMMIT_SHA',
+         '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE_NAME}:$COMMIT_SHA',
+         '-t', '${_IMAGE_NAME}:latest'
          ]
 
 substitutions:
   _AR_NAME: apps # default value
   _AR_REGION: us-east4 # default value
-  _IMAGE: my-python-app # default value
+  _IMAGE_NAME: my-python-app # default value
 
 images:
-- '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE}:latest'
+- '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE_NAME}:latest'
