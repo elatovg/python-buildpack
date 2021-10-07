@@ -6,9 +6,9 @@ steps:
   args: ['build',
          '--builder=gcr.io/buildpacks/builder',
          '--publish', 
-         '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE_NAME}:$SHORT_SHA',
+         '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE_NAME}:latest',
          '-t', 
-         '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE_NAME}:latest'
+         '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE_NAME}:$SHORT_SHA'
          ]
 
 substitutions:
