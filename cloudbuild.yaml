@@ -6,7 +6,7 @@ steps:
   args: ['build',
          '--builder=gcr.io/buildpacks/builder',
          '--publish', 
-         '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE_NAME}:$COMMIT_SHA',
+         '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE_NAME}:$SHORT_SHA',
          '-t', 
          '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE_NAME}:latest'
          ]
