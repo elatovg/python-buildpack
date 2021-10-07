@@ -1,0 +1,18 @@
+steps:
+- id: 'Build-Image-with-Buildpacks'
+  name: 'gcr.io/k8s-skaffold/pack'
+  dir: 'app'
+  entrypoint: 'pack'
+  args: ['build',
+         '--builder=gcr.io/buildpacks/builder',
+         '--publish', 
+         '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE}:$COMMIT_SHA',
+         ]
+
+substitutions:
+  _AR_NAME: apps # default value
+  _AR_REGION: us-east4 # default value
+  _IMAGE: my-python-app # default value
+
+images:
+- '${_AR_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_NAME}/${_IMAGE}:latest'
